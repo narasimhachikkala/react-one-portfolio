@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"; // Importing motion for animations
+import { motion } from "framer-motion";
 
 import html from "../assets/html.png";
 import css from "../assets/css.png";
@@ -122,11 +122,14 @@ const Technologies = () => {
           {techs.map(({ id, src, title, style }) => (
             <motion.div
               key={id}
-              className={`shadow-md hover:scale-105 duration-500 py-2 rounded-lg ${style}`}
+              className={`shadow-md py-2 rounded-lg ${style}`}
               initial={{ opacity: 0, y: 50 }} // Initial position
               whileInView={{ opacity: 1, y: 0 }} // Position when in view
               viewport={{ amount: 0.3 }} // Trigger when 30% in view
-              transition={{ duration: 0.7, ease: "easeInOut", delay: id * 0.1 }} // Animation duration and delay
+              transition={{ duration: 0.5, ease: "easeInOut", delay: id * 0.1 }} // Animation duration and delay
+              whileHover={{ scale: 1.05, transition: { duration: 0.1 } }} // Faster hover scale
+              // Set the transition for scale back to normal
+              animate={{ scale: 1, transition: { duration: 0.1 } }} // Simultaneous reduction
             >
               <img
                 src={src}

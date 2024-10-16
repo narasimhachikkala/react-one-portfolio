@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion"; // Importing motion for animations
+import { FaBriefcase, FaGraduationCap } from "react-icons/fa"; // Import icons
 
 const Experience = () => {
   const workExperience = [
@@ -82,13 +83,18 @@ const Experience = () => {
             {workExperience.map(({ id, title, company, duration, description }) => (
               <motion.li
                 key={id}
-                className="bg-gray-900 p-6 rounded-lg shadow-lg hover:scale-105 duration-300"
+                className="bg-gray-900 p-6 rounded-lg shadow-lg"
                 initial={{ opacity: 0, y: 20 }} // Start slightly below
                 whileInView={{ opacity: 1, y: 0 }} // Move into view
                 viewport={{ once: false, amount: 0.3 }} // Trigger when 30% of the item is in view
-                transition={{ duration: 0.7, ease: "easeInOut", delay: id * 0.1 }} // Smooth transition with custom easing
+                transition={{ duration: 0.5, ease: "easeInOut", delay: id * 0.1 }} // Smooth transition with custom easing
+                whileHover={{ scale: 1.05, transition: { duration: 0.1 } }} // Faster hover scale
+                animate={{ scale: 1, transition: { duration: 0.1 } }} // Simultaneous reduction
               >
-                <h4 className="text-3xl font-bold">{title}</h4>
+                <h4 className="text-3xl font-bold flex items-center">
+                  <FaBriefcase className="mr-2 text-gray-400" style={{ width: '2rem', height: '2rem' }} /> {/* Briefcase icon */}
+                  {title}
+                </h4>
                 <p className="text-xl text-gray-400">{company} - {duration}</p>
                 <ul className="mt-4 list-disc ml-6 space-y-2 text-lg">
                   {description.map((item, index) => (
@@ -127,14 +133,24 @@ const Experience = () => {
             {education.map(({ id, title, company, duration, description }) => (
               <motion.li
                 key={id}
-                className="bg-gray-900 p-6 rounded-lg shadow-lg hover:scale-105 duration-300"
+                className="bg-gray-900 p-6 rounded-lg shadow-lg"
                 initial={{ opacity: 0, y: 20 }} // Start slightly below
                 whileInView={{ opacity: 1, y: 0 }} // Move into view
                 viewport={{ once: false, amount: 0.3 }} // Trigger when 30% of the item is in view
-                transition={{ duration: 0.7, ease: "easeInOut", delay: id * 0.1 }} // Smooth transition with custom easing
+                transition={{ duration: 0.5, ease: "easeInOut", delay: id * 0.1 }} // Smooth transition with custom easing
+                whileHover={{ scale: 1.05, transition: { duration: 0.1 } }} // Faster hover scale
+                animate={{ scale: 1, transition: { duration: 0.1 } }} // Simultaneous reduction
               >
-                <h4 className="text-3xl font-bold">{title}</h4>
-                <p className="text-xl text-gray-400">{company} - {duration}</p>
+                <div className="flex items-start">
+                  <FaGraduationCap
+                    className="mr-2 text-gray-400" 
+                    style={{ width: '2rem', height: '2rem' }} // Fixed size for the icon
+                  />
+                  <div className="flex flex-col">
+                    <h4 className="text-3xl font-bold">{title}</h4>
+                    <p className="text-xl text-gray-400">{company} - {duration}</p>
+                  </div>
+                </div>
                 <p className="mt-4 text-lg">{description}</p>
               </motion.li>
             ))}
