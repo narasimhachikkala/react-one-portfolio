@@ -9,36 +9,31 @@ const Contact = () => {
     >
       <div className="max-w-screen-lg mx-auto flex flex-col justify-center w-full h-full">
         {/* Contact Title and Description with Motion */}
-        <div className="pb-8">
-          <motion.p 
-            className="text-4xl font-bold inline border-b-4 border-gray-500"
-            initial={{ opacity: 0, y: -20 }} // Start with hidden and above
-            whileInView={{ opacity: 1, y: 0 }} // Fade in and slide to original position
-            viewport={{ amount: 0.5 }} // Trigger when 50% of the element is in view
-            transition={{ duration: 0.7, delay: 0.1 }} // Smooth transition
-          >
+        <motion.div
+          className="pb-8"
+          initial={{ opacity: 0, x: -100 }} // Start off-screen (left)
+          whileInView={{ opacity: 1, x: 0 }} // Fade in and slide to original position
+          viewport={{ amount: 0.5 }} // Trigger when 50% of the element is in view
+          transition={{ duration: 0.7, delay: 0.2 }} // Smooth transition
+        >
+          <p className="text-4xl font-bold inline border-b-4 border-gray-500">
             Contact
-          </motion.p>
-          <motion.p 
-            className="py-6"
-            initial={{ opacity: 0, y: -20 }} // Start with hidden and above
-            whileInView={{ opacity: 1, y: 0 }} // Fade in and slide to original position
-            viewport={{ amount: 0.5 }} // Trigger when 50% of the element is in view
-            transition={{ duration: 0.7, delay: 0.2 }} // Smooth transition
-          >
+          </p>
+          <p className="py-6">
             Submit the form below to get in touch with me
-          </motion.p>
-        </div>
+          </p>
+        </motion.div>
 
+        {/* Contact Form */}
         <div className="flex justify-center items-center">
           <motion.form
             action="https://getform.io/f/bmdpzdda"
             method="POST"
             className="flex flex-col w-full md:w-1/2"
-            initial={{ opacity: 0, y: 20 }} // Start with hidden and below
-            whileInView={{ opacity: 1, y: 0 }} // Fade in and slide to original position
+            initial={{ opacity: 0, y: 20 }} // Start slightly below and invisible
+            whileInView={{ opacity: 1, y: 0 }} // Fade in and slide into view
             viewport={{ amount: 0.5 }} // Trigger when 50% of the element is in view
-            transition={{ duration: 0.7, delay: 0.3 }} // Smooth transition
+            transition={{ duration: 0.8, delay: 0.3 }} // Smooth form transition
           >
             <input
               type="text"
