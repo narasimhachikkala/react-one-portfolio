@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { motion } from "framer-motion"; // Importing motion for animations
 
 const Experience = () => {
   const workExperience = [
@@ -15,7 +15,7 @@ const Experience = () => {
     },
     {
       id: 2,
-      title: "Data Engineer Intern ",
+      title: "Data Engineer Intern",
       company: "TechCiti Technologies Private Limited",
       duration: "January 2021 - June 2022",
       description: [
@@ -54,21 +54,39 @@ const Experience = () => {
 
   return (
     <div name="experience" className="bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-fit">
-      <div className="max-w-screen-lg mx-auto flex flex-col justify-center w-full h-full p-20">
+      <div className="max-w-screen-lg mx-auto flex flex-col justify-center w-full h-full p-8 md:p-20">
         {/* Experience Section */}
         <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 border-gray-500">Experience</p>
+          <motion.p
+            className="text-4xl font-bold inline border-b-4 border-gray-500"
+            initial={{ opacity: 0, x: -100 }} // Slide in from the left
+            whileInView={{ opacity: 1, x: 0 }} // Move to its original position
+            viewport={{ amount: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            Experience
+          </motion.p>
+          <motion.p
+            className="py-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            Here are my professional experiences
+          </motion.p>
         </div>
+
         <div className="mb-12">
           <ul className="space-y-8">
             {workExperience.map(({ id, title, company, duration, description }) => (
               <motion.li
                 key={id}
                 className="bg-gray-900 p-6 rounded-lg shadow-lg hover:scale-105 duration-300"
-                initial={{ opacity: 0, scale: 0.95 }} // Start with smaller and hidden
-                whileInView={{ opacity: 1, scale: 1 }} // Fade in and scale to original size
+                initial={{ opacity: 0, y: 20 }} // Start slightly below
+                whileInView={{ opacity: 1, y: 0 }} // Move into view
                 viewport={{ once: false, amount: 0.3 }} // Trigger when 30% of the item is in view
-                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: id * 0.1 }} // Smooth transition with custom easing
+                transition={{ duration: 0.7, ease: "easeInOut", delay: id * 0.1 }} // Smooth transition with custom easing
               >
                 <h4 className="text-3xl font-bold">{title}</h4>
                 <p className="text-xl text-gray-400">{company} - {duration}</p>
@@ -84,18 +102,36 @@ const Experience = () => {
 
         {/* Education Section */}
         <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 border-gray-500">Education</p>
+          <motion.p
+            className="text-4xl font-bold inline border-b-4 border-gray-500"
+            initial={{ opacity: 0, x: -100 }} // Slide in from the left
+            whileInView={{ opacity: 1, x: 0 }} // Move to its original position
+            viewport={{ amount: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            Education
+          </motion.p>
+          <motion.p
+            className="py-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            My educational background
+          </motion.p>
         </div>
+
         <div className="mb-0">
           <ul className="space-y-8">
             {education.map(({ id, title, company, duration, description }) => (
               <motion.li
                 key={id}
                 className="bg-gray-900 p-6 rounded-lg shadow-lg hover:scale-105 duration-300"
-                initial={{ opacity: 0, scale: 0.95 }} // Start with smaller and hidden
-                whileInView={{ opacity: 1, scale: 1 }} // Fade in and scale to original size
+                initial={{ opacity: 0, y: 20 }} // Start slightly below
+                whileInView={{ opacity: 1, y: 0 }} // Move into view
                 viewport={{ once: false, amount: 0.3 }} // Trigger when 30% of the item is in view
-                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: id * 0.1 }} // Smooth transition with custom easing
+                transition={{ duration: 0.7, ease: "easeInOut", delay: id * 0.1 }} // Smooth transition with custom easing
               >
                 <h4 className="text-3xl font-bold">{title}</h4>
                 <p className="text-xl text-gray-400">{company} - {duration}</p>

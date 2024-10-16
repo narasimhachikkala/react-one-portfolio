@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { motion } from "framer-motion"; // Importing motion for animations
 
 import html from "../assets/html.png";
 import css from "../assets/css.png";
@@ -26,7 +26,7 @@ const Technologies = () => {
       id: 2,
       src: css,
       title: "CSS",
-      style: "shadow-blue-400",
+      style: "shadow-blue-500",
     },
     {
       id: 3,
@@ -93,40 +93,47 @@ const Technologies = () => {
   return (
     <div
       name="technologies"
-      className="bg-gradient-to-b from-gray-800 to-black w-full h-fit p-20"
+      className="bg-gradient-to-b from-gray-800 to-black w-full text-white"
     >
-      <div className="max-w-screen-lg mx-auto p-4 flex flex-col justify-center w-full h-full text-white">
-        {/* Title Section */}
-        <motion.div
-          className="pb-8 mt-6" // Added margin-top for spacing
-          initial={{ opacity: 0, x: -100 }} // Fade in and slide left
-          whileInView={{ opacity: 1, x: 0 }} // Animate into place
-          viewport={{ amount: 0.5 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
-          <p className="text-4xl font-bold border-b-4 border-gray-500 p-2 inline">
+      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
+        <div className="pb-8">
+          <motion.p
+            className="text-4xl font-bold inline border-b-4 border-gray-500"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             Technologies
-          </p>
-          <p className="py-6">These are the technologies I've worked with</p>
-        </motion.div>
+          </motion.p>
+          <motion.p
+            className="py-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            These are the technologies I've worked with
+          </motion.p>
+        </div>
 
-        {/* Technologies Grid */}
+        {/* Adjusted grid layout for small screens and larger */}
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-8 text-center py-8 px-12 sm:px-0">
           {techs.map(({ id, src, title, style }) => (
             <motion.div
               key={id}
-              className={`shadow-md py-2 rounded-lg ${style}`} // Styling each technology card
-              initial={{ opacity: 0, scale: 0.9 }} // Start slightly scaled down and invisible
-              whileInView={{ opacity: 1, scale: 1 }} // Animate to full opacity and scale
-              viewport={{ amount: 0.3 }} // Animation triggers when 30% in view
-              transition={{ duration: 0.5, delay: id * 0.1 }} // Delayed animation for stagger effect
-              whileHover={{
-                scale: 1.05, // Slight scale-up on hover
-                transition: { duration: 0.3 }, // Smooth hover transition
-              }}
+              className={`shadow-md hover:scale-105 duration-500 py-2 rounded-lg ${style}`}
+              initial={{ opacity: 0, y: 50 }} // Initial position
+              whileInView={{ opacity: 1, y: 0 }} // Position when in view
+              viewport={{ amount: 0.3 }} // Trigger when 30% in view
+              transition={{ duration: 0.7, ease: "easeInOut", delay: id * 0.1 }} // Animation duration and delay
             >
-              <img src={src} alt={title} className="w-20 mx-auto" />
-              <p className="mt-4">{title}</p>
+              <img
+                src={src}
+                alt={title}
+                className="w-20 mx-auto" // Adjusted width for better view
+              />
+              <p className="mt-4 text-lg font-semibold">{title}</p> {/* Slightly bigger font */}
             </motion.div>
           ))}
         </div>

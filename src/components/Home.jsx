@@ -62,7 +62,7 @@ const Home = () => {
           <img
             src={HeroImage}
             alt="my profile"
-            className="rounded-2xl w-4/5 max-w-[250px] md:max-w-[350px] lg:max-w-[400px] h-auto"
+            className="rounded-2xl w-4/5 max-w-[280px] md:max-w-[400px] lg:max-w-[300px] h-auto" // Adjust max-w sizes for different screens
           />
         </motion.div>
       </div>

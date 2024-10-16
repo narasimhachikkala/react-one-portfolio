@@ -1,28 +1,34 @@
 import React from "react";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { motion } from "framer-motion"; // Importing motion for animations
 
 const Contact = () => {
   return (
     <div
       name="contact"
-      className="bg-gradient-to-b from-gray-800 to-black w-full text-white md:h-fit p-20"
+      className="bg-gradient-to-b from-gray-800 to-black w-full text-white md:h-fit p-4" // Changed p-20 to p-4 for padding consistency
     >
       <div className="max-w-screen-lg mx-auto flex flex-col justify-center w-full h-full">
         {/* Contact Title and Description with Motion */}
-        <motion.div
-          className="pb-8"
-          initial={{ opacity: 0, x: -100 }} // Start off-screen (left)
-          whileInView={{ opacity: 1, x: 0 }} // Fade in and slide to original position
-          viewport={{ amount: 0.5 }} // Trigger when 50% of the element is in view
-          transition={{ duration: 0.7, delay: 0.2 }} // Smooth transition
-        >
-          <p className="text-4xl font-bold inline border-b-4 border-gray-500">
+        <div className="pb-8">
+          <motion.p
+            className="text-4xl font-bold inline border-b-4 border-gray-500" // Keeping the same styles as Technologies heading
+            initial={{ opacity: 0, x: -100 }} // Start off-screen (left)
+            whileInView={{ opacity: 1, x: 0 }} // Fade in and slide to original position
+            viewport={{ amount: 0.5 }} // Trigger when 50% of the element is in view
+            transition={{ duration: 0.7, delay: 0.2 }} // Smooth transition
+          >
             Contact
-          </p>
-          <p className="py-6">
+          </motion.p>
+          <motion.p
+            className="py-6"
+            initial={{ opacity: 0, y: 20 }} // Initial position
+            whileInView={{ opacity: 1, y: 0 }} // Position when in view
+            viewport={{ amount: 0.3 }} // Trigger when 30% in view
+            transition={{ duration: 0.7, delay: 0.3 }} // Smooth transition
+          >
             Submit the form below to get in touch with me
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* Contact Form */}
         <div className="flex justify-center items-center">
