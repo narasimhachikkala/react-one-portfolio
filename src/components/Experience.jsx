@@ -54,7 +54,8 @@ const Experience = () => {
   ];
 
   return (
-    <div name="experience" className="bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-fit">
+    <div name="experience" className="bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-fit pt-20 md:pt-8 lg:pt-8">
+      {/* Add padding to the top of the section to ensure headings are visible */}
       <div className="max-w-screen-lg mx-auto flex flex-col justify-center w-full h-full p-8 md:p-20">
         {/* Experience Section */}
         <div className="pb-8">

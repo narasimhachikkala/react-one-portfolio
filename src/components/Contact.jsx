@@ -5,13 +5,13 @@ const Contact = () => {
   return (
     <div
       name="contact"
-      className="bg-gradient-to-b from-gray-800 to-black w-full text-white md:h-fit p-4" // Changed p-20 to p-4 for padding consistency
+      className="bg-gradient-to-b from-gray-800 to-black w-full text-white p-4 md:h-fit" // Removed pt-24
     >
       <div className="max-w-screen-lg mx-auto flex flex-col justify-center w-full h-full">
         {/* Contact Title and Description with Motion */}
-        <div className="pb-8">
+        <div className="pb-8 pt-20"> {/* Added pt-20 for consistent top padding */}
           <motion.p
-            className="text-4xl font-bold inline border-b-4 border-gray-500" // Keeping the same styles as Technologies heading
+            className="text-4xl font-bold inline border-b-4 border-gray-500" // Keeping the same styles as other headings
             initial={{ opacity: 0, x: -100 }} // Start off-screen (left)
             whileInView={{ opacity: 1, x: 0 }} // Fade in and slide to original position
             viewport={{ amount: 0.5 }} // Trigger when 50% of the element is in view
