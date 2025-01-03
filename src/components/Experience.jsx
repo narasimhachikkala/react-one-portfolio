@@ -18,7 +18,7 @@ const Experience = () => {
       id: 2,
       title: "Data Engineer Intern",
       company: "TechCiti Technologies Private Limited",
-      duration: "January 2021 - June 2022",
+      duration: "January 2022 - June 2022",
       description: [
         "Collaborated with data scientists to provide clean datasets for machine learning, automating ETL workflows and optimizing cloud infrastructure, reducing costs and improving system performance.",
         "Optimized query performance, developed automated testing suites for data pipelines, and ensured schema evolution while maintaining data quality and accuracy.",
